@@ -7,12 +7,12 @@
 """
 
 import numpy as np
-from pygam import LinearGAM, s, f
+from pygam import LinearGAM, s
 
 from plots.gam_plots import plot_gam_partial_dependence_functions
-from preprocessing.input_data_preprocessing import preprocess_input_data
 from sklearn.metrics import accuracy_score, confusion_matrix, mutual_info_score
 
+from ante_hoc.preprocessing.input_data_preprocessing import preprocess_input_data
 from plots.confusion_matrix_plot import confusion_matrix_plot_sns
 
 # [1.] Import data -----------------------------------------------------------------------------------------------------

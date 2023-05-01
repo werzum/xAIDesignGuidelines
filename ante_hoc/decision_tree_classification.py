@@ -6,18 +6,14 @@
     :date: 2023-04-30
 """
 
-import os
-
 import numpy as np
-import pandas as pd
 from sklearn import tree
-from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score, confusion_matrix, mutual_info_score
-from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.model_selection import GridSearchCV
 
 from plots.confusion_matrix_plot import confusion_matrix_plot_sns
 from plots.tree_plots import plot_feature_importances_hist_matplotlib, plot_decision_tree_rules
-from preprocessing.input_data_preprocessing import preprocess_input_data
+from ante_hoc.preprocessing.input_data_preprocessing import preprocess_input_data
 
 # [1.] Import data -----------------------------------------------------------------------------------------------------
 X_train, X_test, y_train, y_test, feature_names, target_names = preprocess_input_data()
