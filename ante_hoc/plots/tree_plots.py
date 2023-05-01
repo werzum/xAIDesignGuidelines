@@ -3,7 +3,7 @@
 
     :author: Anna Saranti
     :copyright: © 2023 HCI-KDD (ex-AI) group
-    :date: 2023-04-31
+    :date: 2023-04-30
 """
 
 import os
@@ -23,7 +23,7 @@ def plot_feature_importances_hist_matplotlib(features_column_names: list,
     :return:
     """
 
-    output_data_path = os.path.join(os.path.join("data", "output_data", "plots"))
+    output_data_path = os.path.join(os.path.join("data", "output_data", "plots", "decision_tree"))
 
     fig, ax = plt.subplots(figsize=(12, 12))
 
@@ -54,16 +54,16 @@ def plot_decision_tree_rules(decision_tree_classifier: tree.DecisionTreeClassifi
     :return:
     """
 
-    output_data_path = os.path.join(os.path.join("data", "output_data", "plots"))
+    output_data_path = os.path.join(os.path.join("data", "output_data", "plots", "decision_tree"))
 
-    fig = plt.figure(figsize=(30, 25))
+    fig = plt.figure(figsize=(10, 10))
     tree.plot_tree(
         decision_tree_classifier,
         # max_depth=2,                          # MAX_DEPTH can be set -------------------------------------------------
         feature_names=features_column_names,
         filled=True,
         rounded=True,
-        fontsize=30
+        fontsize=12
     )
     plt.show()
     fig.savefig(os.path.join(output_data_path, f"Explanations DT tree with {features_nr} features.png"))

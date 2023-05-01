@@ -3,7 +3,7 @@
 
     :author: Anna Saranti
     :copyright: © 2023 HCI-KDD (ex-AI) group
-    :date: 2023-04-31
+    :date: 2023-04-30
 """
 
 import os
@@ -17,22 +17,11 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 
 from plots.confusion_matrix_plot import confusion_matrix_plot_sns
 from plots.tree_plots import plot_feature_importances_hist_matplotlib, plot_decision_tree_rules
-
+from preprocessing.input_data_preprocessing import preprocess_input_data
 
 # [1.] Import data -----------------------------------------------------------------------------------------------------
-iris_data = load_iris()
-
-feature_names = iris_data.feature_names
+X_train, X_test, y_train, y_test, feature_names, target_names = preprocess_input_data()
 features_nr = len(feature_names)
-
-target_names = iris_data.target_names
-print(f"Feature names: {feature_names}, nr. of features: {features_nr}")
-print(f"Target names: {target_names}")
-
-X = iris_data.data
-y = iris_data.target
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # [2.] Decision Tree Classifier ----------------------------------------------------------------------------------------
 dt_search_classifier = tree.DecisionTreeClassifier()
@@ -66,7 +55,7 @@ conf_matrix = confusion_matrix(y_test, y_pred)
 print("Confusion Matrix:")
 print(conf_matrix)
 
-confusion_matrix_plot_sns(conf_matrix, "decision tree", features_nr, target_names)
+confusion_matrix_plot_sns(conf_matrix, "decision_tree", features_nr, target_names)
 
 # [4.] Feature importance ----------------------------------------------------------------------------------------------
 feature_importances = dt_classifier.feature_importances_

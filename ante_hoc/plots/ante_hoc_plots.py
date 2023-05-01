@@ -3,7 +3,7 @@
 
     :author: Anna Saranti
     :copyright: © 2023 HCI-KDD (ex-AI) group
-    :date: 2023-04-31
+    :date: 2023-04-30
 """
 
 import matplotlib.pyplot as plt
